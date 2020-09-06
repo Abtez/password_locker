@@ -27,3 +27,17 @@ def display_credentials():
 
 def delete_credentials(credentials):
     credentials.delete_credentials()
+    
+def check_credentials(account_name):
+    return Credentials.credentials_exist()
+
+def generate_password():
+    gen_pwrd = Credentials.generate_password()
+    return gen_pwrd
+
+def main():
+    print('Welcome to Accounts Management. Use the these commands to proceed: CA = create account, SI = sign in')    
+
+
+if __name__ == '__main__':
+    main()
