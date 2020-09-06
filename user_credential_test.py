@@ -18,6 +18,15 @@ class TestCredentials(unittest.TestCase):
     def setUp(self):
         self.new_credentials = Credentials('Instagram','Abzed','Abzed1z0')
         
+    def  test_init(self):
+        self.assertEqual(self.new_credentials.account_name,'Instagram')
+        self.assertEqual(self.new_credentials.username,'Abzed')
+        self.assertEqual(self.new_credentials.password,'Abzed1z0')
+        
+    def test_save_credentials(self):
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)
+        
         
         
 if __name__ == '__main__':
