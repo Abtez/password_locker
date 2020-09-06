@@ -14,4 +14,4 @@ class Credentials:
     credentials_list = []
     
     def save_credentials(self):
-        
+        Credentials.credentials_list.append(self)
