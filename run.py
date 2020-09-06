@@ -36,7 +36,35 @@ def generate_password():
     return gen_pwrd
 
 def main():
-    print('Welcome to Accounts Management. Use the these commands to proceed: CA = create account, SI = sign in')    
+    print('Welcome to Accounts Management. Use the these commands to proceed: CA = create account, SI = sign in')
+    short_code = input().lower()   
+    if short_code == 'ca':
+        print('Enter new account details')
+        print('*' * 100)
+        username = input('Enter Username: ')
+        while True:
+            print('use : GP = to auto generate password... or MP = to manually enter your own password')
+            password_choice = input().lower()
+            if password_choice == 'mp':
+                password = input('Enter Password: ')
+                break
+            elif password_choice == 'gp':
+                password = generate_password()
+                break
+            else:
+                print('Invalid short code. Please try again')
+                
+        print('*' * 100)
+        print(f'Welcome {username} to your new account your password is <--- {password} --->')
+        print('*' * 100)
+
+               
+        
+            
+                
+                
+                
+                
 
 
 if __name__ == '__main__':
