@@ -50,6 +50,13 @@ class TestCredentials(unittest.TestCase):
         found_credentials = Credentials.find_account_name('Twitter')
         self.assertEqual(found_credentials.account_name,test_credentials.account_name)
         
+    def test_credentials_exist(self):
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials('Twitter','Abzed','Abzedar2')
+        test_credentials.save_credentials()
+        credentials_exist = Credentials.credentials_exist('Twitter')
+        self.assertTrue(credentials_exist)
+        
         
         
         
