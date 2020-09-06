@@ -1,3 +1,6 @@
+import random
+import string
+
 class User:
     
     user_list = []
@@ -44,3 +47,7 @@ class Credentials:
     
     def display_credentials(cls):
         return cls.credentials_list
+    
+    def generatePassword(stringLength = 8):
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength))

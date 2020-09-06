@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-from user_class import User
+from user_ import User
 
 def create_user(name, password):
     new_user = User(name, password)
