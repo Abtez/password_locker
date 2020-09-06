@@ -24,3 +24,10 @@ class Credentials:
         
     def delete_credentials(self):
         Credentials.credentials_list.remove(self)
+        
+    @classmethod
+    
+    def find_account_name(cls,account_name):
+        for credentials in cls.credentials_list:
+            if credentials.account_name == account_name:
+                return credentials
