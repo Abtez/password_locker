@@ -38,7 +38,7 @@ def generate_password():
     gen_pwrd = Credentials.generate_password()
     return gen_pwrd
 
-def copy_credentials(account_name):
+def copy_credentials():
     return Credentials.copy_credentials()
 
 def main():
@@ -109,6 +109,7 @@ def main():
                     print(f' Name: {account_name} \n Username: {username} \n Password: {password}')
                     print('*' * 100)
             else:
+                print('*' * 100)
                 print('You have No Credentials. Please Create One')
                 print('*' * 100)
                 
@@ -149,7 +150,7 @@ def main():
             to_copy = input('Enter Account name : ')
             print('*' * 100)
             if find_credentials(to_copy):
-                to_copy = copy_credentials(to_copy)
+                to_copy = find_credentials(copy_credentials())
                 print('*' * 100)
                 print('Account details copied')
                 print('*' * 100)
