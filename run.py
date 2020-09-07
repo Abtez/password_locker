@@ -15,7 +15,7 @@ def save_user(user):
 def display_user():
     return User.display_user()
 
-def create_credentials(account_name,username, password):
+def create_credentials(account_name, username, password):
      new_credentials = Credentials(account_name, username, password)
      return new_credentials
  
@@ -30,6 +30,9 @@ def delete_credentials(credentials):
     
 def check_credentials(account_name):
     return Credentials.credentials_exist()
+
+def find_credentials():
+    return Credentials.find_account_name()
 
 def generate_password():
     gen_pwrd = Credentials.generate_password()
@@ -92,12 +95,30 @@ def main():
                 print('*' * 100)
             save_credentials(create_credentials(account_name, username, password))
             print('\n')
-            print(f'Your Account for {account_name} has been saved')
+            print(f'Your {account_name} account has been saved')
             print('\n')
             print('*' * 100)
             
         elif short_code == 'vc':
+            if display_credentials():
+                print('Your saved credentials are:')
+                for account_name in display_credentials():
+                    print(f' Name: {account_name} \n Username: {username} \n Password: {password}')
+                    print('*' * 100)
+            else:
+                print('You have No Credentials. Please Create One')
+                
+        elif short_code == 'dc':
+            print('Enter Account name to delete...')
+            name = input('Acount Name : ').lower()
+            if find_credentials(name):
+                name_result = find_credentials(name)
+                name_result.delete_credentials()
+                print(f'Account {name} has been successfully deleted ')
             
+                
+                
+                
             
                     
             
