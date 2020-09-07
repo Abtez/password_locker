@@ -94,15 +94,15 @@ def main():
                     print('Invalid short code. Please try again')
                 print('*' * 100)
             save_credentials(create_credentials(account_name, username, password))
-            print('\n')
+            print('*' * 100)
             print(f'Your {account_name} account has been saved')
-            print('\n')
             print('*' * 100)
             
         elif short_code == 'vc':
             if display_credentials():
                 print('Your saved credentials are:')
                 for account_name in display_credentials():
+                    print('*' * 100)
                     print(f' Name: {account_name} \n Username: {username} \n Password: {password}')
                     print('*' * 100)
             else:
@@ -112,6 +112,7 @@ def main():
         elif short_code == 'dc':
             print('Enter Account name to delete...')
             name = input('Acount Name : ')
+            print('*' * 100)
             if find_credentials(name):
                 name_result = find_credentials(name)
                 name_result.delete_credentials()
@@ -125,6 +126,7 @@ def main():
         elif short_code == 'sc':
             print('Enter Account Name To Search...')
             search = input('Account Name : ')
+            print('*' * 100)
             if find_credentials(search):
                 search = find_credentials(search)
                 print(f'Account Name: {search.account_name} \n Username: {search.username} \n Password: {search.password}')

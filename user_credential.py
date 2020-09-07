@@ -1,5 +1,6 @@
 import random
 import string
+import pyperclip
 
 class User:
     
@@ -12,10 +13,6 @@ class User:
     def save_user(self):
         User.user_list.append(self)
         
-class Credentials:
-    
-    credentials_list = []
-    
     @classmethod
     
     def user_exist(cls, username,password):
@@ -24,6 +21,10 @@ class Credentials:
             if(user.username == username and user.password == password):
                 current_user = user.username
         return current_user
+        
+class Credentials:
+    
+    credentials_list = []
     
     def __init__(self,account_name,username, password):
         self.account_name = account_name
@@ -56,6 +57,12 @@ class Credentials:
     
     def display_credentials(cls):
         return cls.credentials_list
+    
+    @classmethod
+    
+    def copy_password(cls):
+        found_credentials = Credentials.find_account_name(account_name)
+        pyperclip.copy(found_credentials)
     
     def generate_password(stringLength = 8):
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "(|/~!.@,)#{?$[%]^}&*"
