@@ -69,12 +69,12 @@ def main():
         password = input('Password: ')
         check_user = sign_in(username,password)
         if sign_in == check_user:            
-            print('\n')
             print(f'Welcome back {username}')
-            print('\n')
+            print('*' * 100)
+            
             
     while True:
-        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n SC search credential, \n GP = generate random password, \n Dc = delete credential, \n EX = exit application')
+        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n SC = search credential, \n GP = generate random password, \n Dc = delete credential, \n EX = exit application')
         short_code = input().lower()
         if short_code == 'nc':
             print('Enter New Credential Details')
@@ -107,6 +107,7 @@ def main():
                     print('*' * 100)
             else:
                 print('You have No Credentials. Please Create One')
+                print('*' * 100)
                 
         elif short_code == 'dc':
             print('Enter Account name to delete...')
@@ -115,9 +116,11 @@ def main():
                 name_result = find_credentials(name)
                 name_result.delete_credentials()
                 print(f'Account {name} has been successfully deleted ')
+                print('*' * 100)
                 
             else:
                 print('Incorrect account name')
+                print('*' * 100)
                 
         elif short_code == 'sc':
             print('Enter Account Name To Search...')
@@ -128,17 +131,21 @@ def main():
                 print('*' * 100)
             else:
                 print('Credential does not exist')
+                print('*' * 100)
             
         elif short_code == 'gp':
             password = generate_password()
             print(f'Your generated password is: <--- {password} --->')
+            print('*' * 100)
             
         elif short_code == 'ex':
             print('Goodbye')
+            print('*' * 100)
             break
             
         else:
             print('Invalid Short code. Please try again!')
+            print('*' * 100)
 
 if __name__ == '__main__':
     main()
