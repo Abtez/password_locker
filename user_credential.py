@@ -60,7 +60,7 @@ class Credentials:
     
     @classmethod
     
-    def copy_password(cls):
+    def copy_credentials(cls):
         found_credentials = Credentials.find_account_name(account_name)
         pyperclip.copy(found_credentials)
     

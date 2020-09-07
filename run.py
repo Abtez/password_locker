@@ -6,7 +6,7 @@ def create_user(username, password):
     return new_user
 
 def sign_in(username, password):
-    user_exists = Credentials.user_exist(username,password)
+    user_exists = User.user_exist(username,password)
     return user_exists
 
 def save_user(user):
@@ -37,6 +37,9 @@ def find_credentials(account_name):
 def generate_password():
     gen_pwrd = Credentials.generate_password()
     return gen_pwrd
+
+def copy_credentials(account_name):
+    return Credentials.copy_credentials()
 
 def main():
     print('Welcome to Accounts Management. Use the these commands to proceed: CA = create account, SI = sign in')
@@ -74,7 +77,7 @@ def main():
             
             
     while True:
-        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n SC = search credential, \n GP = generate random password, \n Dc = delete credential, \n EX = exit application')
+        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n SC = search credential, \n GP = generate random password, \n Dc = delete credential, \n CC = copy credential, \n EX = exit application')
         short_code = input().lower()
         if short_code == 'nc':
             print('Enter New Credential Details')
@@ -139,6 +142,20 @@ def main():
             password = generate_password()
             print(f'Your generated password is: <--- {password} --->')
             print('*' * 100)
+            
+        elif short_code == 'cc':
+            print('*' * 100)
+            print('Enter account name you wish copy credentials')
+            to_copy = input('Enter Account name : ')
+            print('*' * 100)
+            if find_credentials(to_copy):
+                to_copy = copy_credentials(to_copy)
+                print('*' * 100)
+                print('Account details copied')
+                print('*' * 100)
+            else:
+                print('Account cannot be copies or does not exist')
+                print('*' * 100)
             
         elif short_code == 'ex':
             print('Goodbye')
