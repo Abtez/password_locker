@@ -31,8 +31,8 @@ def delete_credentials(credentials):
 def check_credentials(account_name):
     return Credentials.credentials_exist()
 
-def find_credentials():
-    return Credentials.find_account_name()
+def find_credentials(account_name):
+    return Credentials.find_account_name(account_name)
 
 def generate_password():
     gen_pwrd = Credentials.generate_password()
@@ -74,7 +74,7 @@ def main():
             print('\n')
             
     while True:
-        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n FC find credential, \n GP = generate random password, \n Dc = delete credential, \n EX = exit application')
+        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n SC search credential, \n GP = generate random password, \n Dc = delete credential, \n EX = exit application')
         short_code = input().lower()
         if short_code == 'nc':
             print('Enter New Credential Details')
@@ -110,11 +110,21 @@ def main():
                 
         elif short_code == 'dc':
             print('Enter Account name to delete...')
-            name = input('Acount Name : ').lower()
+            name = input('Acount Name : ')
             if find_credentials(name):
                 name_result = find_credentials(name)
                 name_result.delete_credentials()
                 print(f'Account {name} has been successfully deleted ')
+                
+            else:
+                print('Incorrect account name')
+                
+        elif short_code == 'sc':
+            print('Enter Account Name To Search...')
+            search = input('Account Name : ')
+            
+                
+        
             
                 
                 
