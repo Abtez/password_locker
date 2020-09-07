@@ -144,20 +144,6 @@ def main():
             print(f'Your generated password is: <--- {password} --->')
             print('*' * 100)
             
-        elif short_code == 'cc':
-            print('*' * 100)
-            print('Enter account name you wish copy credentials')
-            to_copy = input('Enter Account name : ')
-            print('*' * 100)
-            if find_credentials(to_copy):
-                to_copy = find_credentials(copy_credentials())
-                print('*' * 100)
-                print('Account details copied')
-                print('*' * 100)
-            else:
-                print('Account cannot be copies or does not exist')
-                print('*' * 100)
-            
         elif short_code == 'ex':
             print('Goodbye')
             print('*' * 100)
