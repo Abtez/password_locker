@@ -122,33 +122,23 @@ def main():
         elif short_code == 'sc':
             print('Enter Account Name To Search...')
             search = input('Account Name : ')
-            search = find_credentials(search)
-            print(f'Account Name: {search.account_name} \n Username: {search.username} \n Password: {search.password}')
-            print('*' * 100)
+            if find_credentials(search):
+                search = find_credentials(search)
+                print(f'Account Name: {search.account_name} \n Username: {search.username} \n Password: {search.password}')
+                print('*' * 100)
+            else:
+                print('Credential does not exist')
+            
+        elif short_code == 'gp':
+            password = generate_password()
+            print(f'Your generated password is: <--- {password} --->')
+            
+        elif short_code == 'ex':
+            print('Goodbye')
+            break
+            
         else:
-            print('Credential does not exist')
-            
-        elif short_code == ''
-            
-                
-        
-            
-                
-                
-                
-            
-                    
-            
-        
-
-               
-        
-            
-                
-                
-                
-                
-
+            print('Invalid Short code. Please try again!')
 
 if __name__ == '__main__':
     main()
