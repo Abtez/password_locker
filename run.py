@@ -54,6 +54,8 @@ def main():
             else:
                 print('Invalid short code. Please try again')
                 
+            save_user(create_user(username, password))
+                
         print('*' * 100)
         print(f'Welcome {username} to your new account your password is <--- {password} --->')
         print('*' * 100)
@@ -76,6 +78,28 @@ def main():
             print('*' * 100)
             account_name = input('Account Name : ')
             username = input('Username : ')
+            while True:
+                print('Would you like to... GP = auto generate password, or MP = manually enter password?')
+                password_choice = input().lower()
+                if password_choice == 'mp':
+                    password = input('Enter password : ')
+                    break
+                elif password_choice == 'gp':
+                    password = generate_password()
+                    break
+                else:
+                    print('Invalid short code. Please try again')
+                print('*' * 100)
+            save_credentials(create_credentials(account_name, username, password))
+            print('\n')
+            print(f'Your Account for {account_name} has been saved')
+            print('\n')
+            print('*' * 100)
+            
+        elif short_code == 'vc':
+            
+            
+                    
             
         
 
