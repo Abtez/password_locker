@@ -68,6 +68,16 @@ This app allows a user to create an account where he can save details of any acc
 
 * Whatsapp : +254759507042
 
+******
+
+## License
+
+MIT License
+
+Copyright (c) 2020 Abzed Abdul Mohammed
+
+******
+
 
 
 
