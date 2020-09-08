@@ -77,7 +77,7 @@ def main():
             
             
     while True:
-        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n SC = search credential, \n GP = generate random password, \n Dc = delete credential, \n CC = copy credential, \n EX = exit application')
+        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = view credentials, \n SC = search credential, \n GP = generate random password, \n Dc = delete credential, \n EX = exit application')
         short_code = input().lower()
         if short_code == 'nc':
             print('Enter New Credential Details')
