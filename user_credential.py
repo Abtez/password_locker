@@ -1,6 +1,5 @@
 import random
 import string
-import pyperclip
 
 class User:
     
@@ -57,12 +56,6 @@ class Credentials:
     
     def display_credentials(cls):
         return cls.credentials_list
-    
-    @classmethod
-    
-    def copy_credentials(cls):
-        found_credentials = Credentials.find_account_name(account_name)
-        pyperclip.copy(found_credentials)
     
     def generate_password(stringLength = 8):
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "(|/~!.@,)#{?$[%]^}&*"

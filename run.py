@@ -12,9 +12,6 @@ def sign_in(username, password):
 def save_user(user):
    user.save_user()
 
-def display_user():
-    return User.display_user()
-
 def create_credentials(account_name, username, password):
      new_credentials = Credentials(account_name, username, password)
      return new_credentials
@@ -22,7 +19,7 @@ def create_credentials(account_name, username, password):
 def save_credentials(credentials):
      credentials.save_credentials()
      
-def display_credentials():
+def display_credential_list():
     return Credentials.display_credentials()
 
 def delete_credentials(credentials):
@@ -102,9 +99,9 @@ def main():
             print('*' * 100)
             
         elif short_code == 'vc':
-            if display_credentials():
+            if display_credential_list():
                 print('Your saved credentials are:')
-                for account_name in display_credentials():
+                for credentials in display_credential_list():
                     print('*' * 100)
                     print(f' Name: {account_name} \n Username: {username} \n Password: {password}')
                     print('*' * 100)
