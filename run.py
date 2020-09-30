@@ -2,41 +2,68 @@
 from user_credential import User, Credentials
 
 def create_user(username, password):
+    '''
+    Function to create a new user with a username and password
+    '''
     new_user = User(username, password)
     return new_user
 
 def sign_in(username, password):
+    """
+    function that checks whether a user exist and then login the user in.
+    """
     user_exists = User.user_exist(username,password)
     return user_exists
 
 def save_user(user):
-   user.save_user()
+    '''
+    Function to save a new user
+    '''    
+    user.save_user()
 
 def create_credentials(account_name, username, password):
-     new_credentials = Credentials(account_name, username, password)
-     return new_credentials
+    """
+    Function that creates new credentials for a given user account
+    """
+    new_credentials = Credentials(account_name, username, password)
+    return new_credentials
  
 def save_credentials(credentials):
-     credentials.save_credentials()
+    """
+    Function to save Credentials to the credentials list
+    """
+    credentials.save_credentials()
      
 def display_credential_list():
+    """
+    Function that returns all the saved credential.
+    """
     return Credentials.display_credentials()
 
 def delete_credentials(credentials):
+    """
+    Function to delete a Credentials from credentials list
+    """
     credentials.delete_credentials()
     
 def check_credentials(account_name):
+    """
+    Function that check if a Credentials exists with that account name and return true or false
+    """
     return Credentials.credentials_exist()
 
 def find_credentials(account_name):
+    """
+    Function that finds a Credentials by an account name and returns the Credentials that belong to that account
+    """
     return Credentials.find_account_name(account_name)
 
 def generate_password():
+    '''
+    generates a random password for the user.
+    '''
     gen_pwrd = Credentials.generate_password()
     return gen_pwrd
-
-def copy_credentials():
-    return Credentials.copy_credentials()
 
 def main():
     print('Welcome to Accounts Management. Use the these commands to proceed: CA = create account, SI = sign in')
